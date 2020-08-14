@@ -3,10 +3,11 @@
   "private": true,
   "description": "Minimal peer to peer virtual table top",
   "scripts": {
-    "fmt": "prettier --write '*.ts' 'src/**/*'",
-    "test": "npm run test:style && npm run test:spec",
+    "fmt": "prettier --write 'src/**/*'",
+    "test": "npm run test:style && npm run test:lint && npm run test:spec",
+    "test:lint": "eslint 'src/**/*'",
     "test:spec": "jest --ci",
-    "test:style": "prettier --check '*.ts' 'src/**/*'"
+    "test:style": "prettier --check 'src/**/*'"
   },
   "repository": {
     "type": "git",
@@ -22,10 +23,29 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.9",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "eslint": "^7.6.0",
+    "eslint-plugin-jest": "^23.20.0",
     "jest": "^26.4.0",
     "prettier": "^2.0.5",
     "ts-jest": "^26.2.0",
     "typescript": "^3.9.7"
+  },
+  "eslintConfig": {
+    "env": {
+      "jest/globals": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:jest/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint",
+      "jest"
+    ]
   },
   "jest": {
     "collectCoverage": true,

@@ -1,1 +1,1 @@
-export const NAME: string = "Ethereal VTT";
+export const NAME = "Ethereal VTT";
