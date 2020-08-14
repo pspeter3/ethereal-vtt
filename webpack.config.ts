@@ -36,7 +36,7 @@ const configure = (
 ): webpack.Configuration => {
     const isProd = mode === "production";
     return {
-        entry: path.join(__dirname, "src", "index.ts"),
+        entry: path.join(__dirname, "src", "index.tsx"),
         output: {
             filename: isProd ? "[name].[chunkhash].js" : "[name].js",
             publicPath: "/",
