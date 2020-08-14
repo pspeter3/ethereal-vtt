@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/pspeter3/ethereal-vtt#readme",
   "dependencies": {
+    "tailwindcss": "^1.6.2",
     "tslib": "^2.0.1"
   },
   "devDependencies": {

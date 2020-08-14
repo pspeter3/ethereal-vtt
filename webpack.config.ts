@@ -68,7 +68,31 @@ const configure = (
                             loader: "postcss-loader",
                             options: {
                                 ident: "postcss",
-                                plugins: [],
+                                plugins: [
+                                    /* eslint-disable @typescript-eslint/no-var-requires */
+                                    require("tailwindcss")({
+                                        purge: [
+                                            path.join(
+                                                __dirname,
+                                                "src",
+                                                "**",
+                                                "*.tsx"
+                                            ),
+                                        ],
+                                        theme: {
+                                            extend: {
+                                                screens: {
+                                                    dark: {
+                                                        raw:
+                                                            "(prefers-color-scheme: dark)",
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    }),
+                                    require("autoprefixer"),
+                                    /* eslint-enable @typescript-eslint/no-var-requires */
+                                ],
                             },
                         },
                     ],
