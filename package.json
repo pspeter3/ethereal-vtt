@@ -1,0 +1,19 @@
+{
+  "name": "ethereal-vtt",
+  "private": true,
+  "description": "Minimal peer to peer virtual table top",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pspeter3/ethereal-vtt.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pspeter3/ethereal-vtt/issues"
+  },
+  "homepage": "https://github.com/pspeter3/ethereal-vtt#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}
