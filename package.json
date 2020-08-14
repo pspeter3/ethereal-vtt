@@ -14,6 +14,10 @@
     "url": "https://github.com/pspeter3/ethereal-vtt/issues"
   },
   "homepage": "https://github.com/pspeter3/ethereal-vtt#readme",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "tslib": "^2.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  }
 }
