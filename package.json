@@ -4,7 +4,8 @@
   "description": "Minimal peer to peer virtual table top",
   "scripts": {
     "fmt": "prettier --write '*.ts' 'src/**/*'",
-    "test": "npm run test:style",
+    "test": "npm run test:style && npm run test:spec",
+    "test:spec": "jest --ci",
     "test:style": "prettier --check '*.ts' 'src/**/*'"
   },
   "repository": {
@@ -20,8 +21,15 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.9",
+    "jest": "^26.4.0",
     "prettier": "^2.0.5",
+    "ts-jest": "^26.2.0",
     "typescript": "^3.9.7"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "preset": "ts-jest"
   },
   "prettier": {
     "tabWidth": 4
