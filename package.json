@@ -22,7 +22,9 @@
   "homepage": "https://github.com/pspeter3/ethereal-vtt#readme",
   "dependencies": {
     "preact": "^10.4.7",
+    "preact-feather": "^4.1.0",
     "tailwindcss": "^1.6.2",
+    "tailwindcss-classnames": "^1.4.1",
     "tslib": "^2.0.1"
   },
   "devDependencies": {

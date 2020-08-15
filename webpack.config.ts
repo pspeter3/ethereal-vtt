@@ -79,16 +79,6 @@ const configure = (
                                                 "*.tsx"
                                             ),
                                         ],
-                                        theme: {
-                                            extend: {
-                                                screens: {
-                                                    dark: {
-                                                        raw:
-                                                            "(prefers-color-scheme: dark)",
-                                                    },
-                                                },
-                                            },
-                                        },
                                     }),
                                     require("autoprefixer"),
                                     /* eslint-enable @typescript-eslint/no-var-requires */
