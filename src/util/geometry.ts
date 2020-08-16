@@ -13,4 +13,4 @@ export function distance([sx, sy]: Vector, [dx, dy]: Vector): number {
     const max = Math.max(x, y);
     const min = Math.min(x, y);
     return max - min + Math.floor(1.5 * min);
-};
+}
