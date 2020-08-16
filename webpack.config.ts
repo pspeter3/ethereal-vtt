@@ -104,6 +104,13 @@ const configure = (
                 filename: isProd ? "[name].[contenthash].css" : "[name].css",
             }),
             new LangPlugin("en"),
+            new webpack.ContextReplacementPlugin(
+                /\/peerjs\//,
+                (data: { dependencies: { critical?: string }[] }) => {
+                    delete data.dependencies[0].critical;
+                    return data;
+                }
+            ),
         ],
         optimization: {
             minimizer: [
