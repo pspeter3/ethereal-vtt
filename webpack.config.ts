@@ -79,6 +79,20 @@ const configure = (
                                                 "*.tsx"
                                             ),
                                         ],
+                                        theme: {
+                                            extend: {
+                                                screens: {
+                                                    dark: {
+                                                        raw:
+                                                            "(prefers-color-scheme: dark)",
+                                                    },
+                                                },
+                                                boxShadow: {
+                                                    outline:
+                                                        "0 0 0 0.25rem rgba(102,126,234,0.5)",
+                                                },
+                                            },
+                                        },
                                     }),
                                     require("autoprefixer"),
                                     /* eslint-enable @typescript-eslint/no-var-requires */
