@@ -1,6 +1,7 @@
 import { h, FunctionComponent } from "preact";
 import { classnames } from "tailwindcss-classnames";
 import { FilePlus } from "preact-feather";
+import { focusStyle } from "../styles";
 
 export const FileUpload: FunctionComponent = () => (
     <div className={classnames("h-48", "flex", "flex-col", "space-y-2")}>
@@ -23,11 +24,7 @@ export const FileUpload: FunctionComponent = () => (
             type="file"
             name="file"
             id="file"
-            className={classnames(
-                "focus:outline-none",
-                "focus:shadow-outline",
-                "rounded"
-            )}
+            className={classnames(focusStyle, "rounded")}
         />
     </div>
 );

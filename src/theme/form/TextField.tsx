@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from "preact";
-import { classnames } from "tailwindcss-classnames";
+import { fieldStyle } from "../styles";
 
 export const TextField: FunctionComponent<{
     id: string;
@@ -14,18 +14,7 @@ export const TextField: FunctionComponent<{
         value={value}
         onChange={(event) => onChange((event.target as HTMLInputElement).value)}
         required={required}
-        className={classnames(
-            "appearance-none",
-            "border-2",
-            "focus:border-indigo-500",
-            "focus:outline-none",
-            "focus:shadow-outline",
-            "h-12",
-            "px-4",
-            "rounded",
-            "text-gray-900",
-            "w-full"
-        )}
+        className={fieldStyle}
     />
 );
 
