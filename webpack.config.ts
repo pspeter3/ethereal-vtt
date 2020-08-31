@@ -71,6 +71,9 @@ const configure = (
                                 plugins: [
                                     /* eslint-disable @typescript-eslint/no-var-requires */
                                     require("tailwindcss")({
+                                        future: {
+                                            removeDeprecatedGapUtilities: true,
+                                        },
                                         purge: [
                                             path.join(
                                                 __dirname,
@@ -81,12 +84,6 @@ const configure = (
                                         ],
                                         theme: {
                                             extend: {
-                                                screens: {
-                                                    dark: {
-                                                        raw:
-                                                            "(prefers-color-scheme: dark)",
-                                                    },
-                                                },
                                                 boxShadow: {
                                                     outline:
                                                         "0 0 0 0.25rem rgba(102,126,234,0.5)",
