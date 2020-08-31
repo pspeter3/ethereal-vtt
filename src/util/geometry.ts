@@ -1,7 +1,7 @@
 /**
  * Vector in x,y space.
  */
-export type Vector = readonly [number, number];
+export type Vector = readonly [x: number, y: number];
 
 /**
  * Calculate the distance between two vectors using alternating diagonals.
