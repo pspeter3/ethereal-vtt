@@ -19,7 +19,7 @@ describe("image", () => {
 
         it("should reject bad inputs", () => {
             expect(() => fromDataURL("invalid")).toThrowError(
-                "Invalid Data URL"
+                "Invalid Data URL",
             );
         });
     });
@@ -45,7 +45,7 @@ describe("image", () => {
                 subtle: {
                     digest(algorithm: string, data: ArrayBuffer): ArrayBuffer {
                         const hash = crypto.createHash(
-                            algorithm.replace("-", "").toLowerCase()
+                            algorithm.replace("-", "").toLowerCase(),
                         );
                         hash.update(Buffer.from(data));
                         return hash.digest();
@@ -56,7 +56,7 @@ describe("image", () => {
             const buffer = await toArrayBuffer(blob);
             const digest = await toDigest(buffer);
             expect(digest).toStrictEqual(
-                "9884bb3734e6f2b3c88f4ca5d48c8ea1bba82e4c"
+                "9884bb3734e6f2b3c88f4ca5d48c8ea1bba82e4c",
             );
             (window as { crypto: unknown }).crypto = originalCrypto;
         });
@@ -76,7 +76,7 @@ describe("image", () => {
                     }
                     this.dispatchEvent(new Event("load"));
                     this.dispatchEvent(new Event("loadend"));
-                }
+                },
             );
             const blob = fromDataURL(REF);
             const dimensions = await toVector(blob);

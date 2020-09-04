@@ -21,10 +21,10 @@ class LangPlugin {
                 (data) => {
                     data.html = data.html.replace(
                         "<html",
-                        `<html lang="${this.lang}"`
+                        `<html lang="${this.lang}"`,
                     );
                     return data;
-                }
+                },
             );
         });
     }
@@ -32,7 +32,7 @@ class LangPlugin {
 
 const configure = (
     _: unknown,
-    { mode }: { mode: "none" | "development" | "production" }
+    { mode }: { mode: "none" | "development" | "production" },
 ): webpack.Configuration => {
     const isProd = mode === "production";
     return {
@@ -71,25 +71,23 @@ const configure = (
                                 plugins: [
                                     /* eslint-disable @typescript-eslint/no-var-requires */
                                     require("tailwindcss")({
+                                        experimental: {
+                                            uniformColorPalette: true,
+                                        },
                                         future: {
                                             removeDeprecatedGapUtilities: true,
                                         },
+                                        plugins: [
+                                            require("@tailwindcss/typography"),
+                                        ],
                                         purge: [
                                             path.join(
                                                 __dirname,
                                                 "src",
                                                 "**",
-                                                "*.tsx"
+                                                "*.tsx",
                                             ),
                                         ],
-                                        theme: {
-                                            extend: {
-                                                boxShadow: {
-                                                    outline:
-                                                        "0 0 0 0.25rem rgba(102,126,234,0.5)",
-                                                },
-                                            },
-                                        },
                                     }),
                                     require("autoprefixer"),
                                     /* eslint-enable @typescript-eslint/no-var-requires */
@@ -120,7 +118,7 @@ const configure = (
                 (data: { dependencies: { critical?: string }[] }) => {
                     delete data.dependencies[0].critical;
                     return data;
-                }
+                },
             ),
         ],
         optimization: {
