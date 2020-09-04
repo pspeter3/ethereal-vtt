@@ -13,7 +13,7 @@ export const Submit: FunctionComponent = () => (
             "rounded",
             "text-indigo-100",
             "w-full",
-            focusStyle
+            focusStyle,
         )}
     />
 );

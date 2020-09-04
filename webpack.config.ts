@@ -21,10 +21,10 @@ class LangPlugin {
                 (data) => {
                     data.html = data.html.replace(
                         "<html",
-                        `<html lang="${this.lang}"`
+                        `<html lang="${this.lang}"`,
                     );
                     return data;
-                }
+                },
             );
         });
     }
@@ -32,7 +32,7 @@ class LangPlugin {
 
 const configure = (
     _: unknown,
-    { mode }: { mode: "none" | "development" | "production" }
+    { mode }: { mode: "none" | "development" | "production" },
 ): webpack.Configuration => {
     const isProd = mode === "production";
     return {
@@ -85,7 +85,7 @@ const configure = (
                                                 __dirname,
                                                 "src",
                                                 "**",
-                                                "*.tsx"
+                                                "*.tsx",
                                             ),
                                         ],
                                     }),
@@ -118,7 +118,7 @@ const configure = (
                 (data: { dependencies: { critical?: string }[] }) => {
                     delete data.dependencies[0].critical;
                     return data;
-                }
+                },
             ),
         ],
         optimization: {

@@ -2,7 +2,7 @@ import { classnames } from "tailwindcss-classnames";
 
 export const focusStyle = classnames(
     "focus:outline-none",
-    "focus:shadow-outline"
+    "focus:shadow-outline",
 );
 
 export const fieldStyle = classnames(
@@ -14,5 +14,5 @@ export const fieldStyle = classnames(
     "rounded",
     "text-gray-900",
     "w-full",
-    focusStyle
+    focusStyle,
 );

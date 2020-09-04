@@ -9,7 +9,7 @@ export const Label: FunctionComponent<{ id: string }> = ({ id, children }) => (
             "font-bold",
             "leading-4",
             "pb-2",
-            "text-gray-700"
+            "text-gray-700",
         )}
     >
         {children}

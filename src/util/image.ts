@@ -31,7 +31,7 @@ export async function toDataURL(blob: Blob): Promise<string> {
         reader.addEventListener(
             "load",
             () => resolve(reader.result as string),
-            { once: true }
+            { once: true },
         );
         reader.addEventListener("error", reject, { once: true });
         reader.readAsDataURL(blob);
@@ -48,7 +48,7 @@ export async function toArrayBuffer(blob: Blob): Promise<ArrayBuffer> {
         reader.addEventListener(
             "load",
             () => resolve(reader.result as ArrayBuffer),
-            { once: true }
+            { once: true },
         );
         reader.addEventListener("error", reject, { once: true });
         reader.readAsArrayBuffer(blob);
@@ -77,7 +77,7 @@ export async function toVector(blob: Blob): Promise<Vector> {
         image.addEventListener(
             "load",
             () => resolve([image.width, image.height]),
-            { once: true }
+            { once: true },
         );
         image.addEventListener("error", reject, { once: true });
         image.addEventListener("loadend", () => URL.revokeObjectURL(url));

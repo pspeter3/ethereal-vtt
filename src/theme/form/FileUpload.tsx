@@ -15,7 +15,7 @@ export const FileUpload: FunctionComponent = () => (
                 "items-center",
                 "justify-center",
                 "rounded",
-                "text-indigo-500"
+                "text-indigo-500",
             )}
         >
             <FilePlus />
