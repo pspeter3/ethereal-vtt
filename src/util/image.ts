@@ -1,4 +1,4 @@
-import { Vector } from "./geometry";
+import { Position } from "./geometry";
 
 const DataURLPattern = /^data:(.+);base64,(.+)$/;
 
@@ -70,7 +70,7 @@ export async function toDigest(buffer: ArrayBuffer): Promise<string> {
  * Converts a Blob to a Vector of its dimensions.
  * @param blob Blob to convert
  */
-export async function toVector(blob: Blob): Promise<Vector> {
+export async function toVector(blob: Blob): Promise<Position> {
     return new Promise((resolve, reject) => {
         const image = new Image();
         const url = URL.createObjectURL(blob);
