@@ -150,7 +150,7 @@ async function sizeOf(type: AssetType, data: ArrayBuffer): Promise<Position> {
         );
         image.addEventListener("error", reject, { once: true });
         image.addEventListener("loadend", () => URL.revokeObjectURL(url));
-        image.src = URL.createObjectURL(url);
+        image.src = url;
     });
 }
 
