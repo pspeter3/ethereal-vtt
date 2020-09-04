@@ -71,9 +71,15 @@ const configure = (
                                 plugins: [
                                     /* eslint-disable @typescript-eslint/no-var-requires */
                                     require("tailwindcss")({
+                                        experimental: {
+                                            uniformColorPalette: true,
+                                        },
                                         future: {
                                             removeDeprecatedGapUtilities: true,
                                         },
+                                        plugins: [
+                                            require("@tailwindcss/typography"),
+                                        ],
                                         purge: [
                                             path.join(
                                                 __dirname,
@@ -82,14 +88,6 @@ const configure = (
                                                 "*.tsx"
                                             ),
                                         ],
-                                        theme: {
-                                            extend: {
-                                                boxShadow: {
-                                                    outline:
-                                                        "0 0 0 0.25rem rgba(102,126,234,0.5)",
-                                                },
-                                            },
-                                        },
                                     }),
                                     require("autoprefixer"),
                                     /* eslint-enable @typescript-eslint/no-var-requires */
