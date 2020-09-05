@@ -71,9 +71,6 @@ const configure = (
                                 plugins: [
                                     /* eslint-disable @typescript-eslint/no-var-requires */
                                     require("tailwindcss")({
-                                        experimental: {
-                                            uniformColorPalette: true,
-                                        },
                                         future: {
                                             removeDeprecatedGapUtilities: true,
                                         },
