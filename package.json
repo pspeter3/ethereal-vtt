@@ -4,12 +4,12 @@
   "description": "Minimal peer to peer virtual table top",
   "scripts": {
     "build": "NODE_ENV=production webpack --mode production",
-    "fmt": "prettier --write '*.{md,ts}' '{.github,src}/**/*'",
+    "fmt": "prettier --write '*.{md,ts}' '{.github,doc,src}/**/*'",
     "start": "webpack-dev-server",
     "test": "npm run test:style && npm run test:lint && npm run test:spec",
     "test:lint": "eslint '*.ts' 'src/**/*'",
     "test:spec": "jest --ci",
-    "test:style": "prettier --check '*.{md,ts}' '{.github,src}/**/*'"
+    "test:style": "prettier --check '*.{md,ts}' '{.github,doc,src}/**/*'"
   },
   "repository": {
     "type": "git",
