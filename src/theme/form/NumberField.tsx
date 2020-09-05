@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from "preact";
-import { fieldStyle } from "../styles";
+import { inputable } from "../styles";
 
 export const NumberField: FunctionComponent<{
     id: string;
@@ -16,7 +16,7 @@ export const NumberField: FunctionComponent<{
             onChange(parseFloat((event.target as HTMLInputElement).value))
         }
         required={required}
-        className={fieldStyle}
+        className={inputable}
     />
 );
 

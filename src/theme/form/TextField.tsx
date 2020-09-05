@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from "preact";
-import { fieldStyle } from "../styles";
+import { inputable } from "../styles";
 
 export const TextField: FunctionComponent<{
     id: string;
@@ -14,7 +14,7 @@ export const TextField: FunctionComponent<{
         value={value}
         onChange={(event) => onChange((event.target as HTMLInputElement).value)}
         required={required}
-        className={fieldStyle}
+        className={inputable}
     />
 );
 

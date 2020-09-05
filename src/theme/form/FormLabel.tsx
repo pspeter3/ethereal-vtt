@@ -1,7 +1,10 @@
 import { h, FunctionComponent } from "preact";
 import { cx } from "../cx";
 
-export const Label: FunctionComponent<{ id: string }> = ({ id, children }) => (
+export const FormLabel: FunctionComponent<{ id: string }> = ({
+    id,
+    children,
+}) => (
     <label
         htmlFor={id}
         className={cx(
@@ -16,4 +19,4 @@ export const Label: FunctionComponent<{ id: string }> = ({ id, children }) => (
     </label>
 );
 
-Label.displayName = "Label";
+FormLabel.displayName = "FormLabel";
