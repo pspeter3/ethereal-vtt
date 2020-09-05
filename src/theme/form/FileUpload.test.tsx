@@ -13,12 +13,14 @@ describe("FileUpload", () => {
                 accept=".jpg, .jpeg, .png"
                 onChange={onChange}
                 required={true}
-            />,
+            >
+                File
+            </FileUpload>,
         );
         const file = new File([""], "test.png", {
             type: AssetType.PNG,
         });
-        fireEvent.change(screen.getByLabelText("File Upload"), {
+        fireEvent.change(screen.getByLabelText("File"), {
             target: {
                 files: [file],
             },
@@ -35,9 +37,11 @@ describe("FileUpload", () => {
                 accept=".jpg, .jpeg, .png"
                 onChange={onChange}
                 required={true}
-            />,
+            >
+                File
+            </FileUpload>,
         );
-        fireEvent.change(screen.getByLabelText("File Upload"), {
+        fireEvent.change(screen.getByLabelText("File"), {
             target: {
                 files: [],
             },
@@ -54,12 +58,14 @@ describe("FileUpload", () => {
                 accept=".jpg, .jpeg, .png"
                 onChange={onChange}
                 required={true}
-            />,
+            >
+                File
+            </FileUpload>,
         );
         const file = new File([""], "test.png", {
             type: AssetType.PNG,
         });
-        const label = screen.getByText("File Upload");
+        const label = screen.getByText("File");
         fireEvent.dragOver(label);
         fireEvent.drop(label, {
             dataTransfer: {
@@ -78,9 +84,11 @@ describe("FileUpload", () => {
                 accept=".jpg, .jpeg, .png"
                 onChange={onChange}
                 required={true}
-            />,
+            >
+                File
+            </FileUpload>,
         );
-        const label = screen.getByText("File Upload");
+        const label = screen.getByText("File");
         fireEvent.dragOver(label);
         fireEvent.drop(label);
         expect(onChange).not.toHaveBeenCalled();
