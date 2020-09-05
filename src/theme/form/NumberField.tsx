@@ -6,7 +6,7 @@ export const NumberField: FunctionComponent<{
     value: number;
     onChange: (value: number) => void;
     required?: boolean;
-}> = ({ id, value, onChange, required }) => (
+}> = ({ id, value, onChange, required, ref }) => (
     <input
         type="number"
         name={id}
@@ -17,6 +17,7 @@ export const NumberField: FunctionComponent<{
         }
         required={required}
         className={inputable}
+        ref={ref}
     />
 );
 
