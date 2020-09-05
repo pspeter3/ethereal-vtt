@@ -29,7 +29,6 @@
     "preact": "^10.4.8",
     "preact-feather": "^4.1.0",
     "tailwindcss": "^1.8.2",
-    "tailwindcss-classnames": "^1.7.0",
     "tslib": "^2.0.1",
     "uuid": "^8.3.0",
     "wouter-preact": "^2.5.1"

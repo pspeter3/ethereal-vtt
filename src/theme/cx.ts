@@ -5,21 +5,21 @@
 export function cx(
     ...args: Array<string | Record<string, boolean> | null | undefined>
 ): string {
-    const classnames: string[] = [];
+    const cx: string[] = [];
     for (const arg of args) {
         if (!arg) {
             continue;
         }
         if (typeof arg === "string") {
-            classnames.push(arg);
+            cx.push(arg);
             continue;
         }
         const keys = Object.keys(arg);
         for (const key of keys) {
             if (arg[key]) {
-                classnames.push(key);
+                cx.push(key);
             }
         }
     }
-    return classnames.join(" ");
+    return cx.join(" ");
 }

@@ -1,10 +1,10 @@
 import { h, FunctionComponent } from "preact";
-import { classnames } from "tailwindcss-classnames";
+import { cx } from "../cx";
 
 export const Label: FunctionComponent<{ id: string }> = ({ id, children }) => (
     <label
         htmlFor={id}
-        className={classnames(
+        className={cx(
             "block",
             "font-bold",
             "leading-4",

@@ -1,11 +1,11 @@
 import { h, FunctionComponent } from "preact";
-import { classnames } from "tailwindcss-classnames";
+import { cx } from "../cx";
 import { focusStyle } from "../styles";
 
 export const Submit: FunctionComponent = () => (
     <input
         type="submit"
-        className={classnames(
+        className={cx(
             "bg-indigo-600",
             "font-bold",
             "h-12",

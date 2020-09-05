@@ -1,13 +1,13 @@
 import { h, FunctionComponent } from "preact";
-import { classnames } from "tailwindcss-classnames";
+import { cx } from "../cx";
 import { FilePlus } from "preact-feather";
 import { focusStyle } from "../styles";
 
 export const FileUpload: FunctionComponent = () => (
-    <div className={classnames("h-48", "flex", "flex-col", "space-y-2")}>
+    <div className={cx("h-48", "flex", "flex-col", "space-y-2")}>
         <label
             htmlFor="file"
-            className={classnames(
+            className={cx(
                 "border-2",
                 "border-indigo-500",
                 "flex-grow",
@@ -24,7 +24,7 @@ export const FileUpload: FunctionComponent = () => (
             type="file"
             name="file"
             id="file"
-            className={classnames(focusStyle, "rounded")}
+            className={cx(focusStyle, "rounded")}
         />
     </div>
 );
