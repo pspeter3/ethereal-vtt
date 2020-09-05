@@ -15,8 +15,7 @@ import {
     labeled,
     rounded,
 } from "../theme/styles";
-import { fromFile } from "../util/asset";
-import { Asset } from "../util/asset";
+import { Asset, fromFile } from "../util/asset";
 import { Position } from "../util/geometry";
 
 interface Result {

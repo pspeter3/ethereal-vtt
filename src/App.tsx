@@ -9,7 +9,7 @@ export const App: FunctionComponent = () => {
     useEffect(() => console.error(error), [error]);
     return (
         <main className={cx("max-w-lg", "mx-auto", "px-4", "py-3")}>
-            <ChartUpload></ChartUpload>
+            <ChartUpload />
         </main>
     );
 };
