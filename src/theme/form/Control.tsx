@@ -1,8 +1,8 @@
 import { h, FunctionComponent } from "preact";
-import { classnames } from "tailwindcss-classnames";
+import { cx } from "../cx";
 
 export const Control: FunctionComponent = ({ children }) => (
-    <div className={classnames("w-full")}>{children}</div>
+    <div className={cx("w-full")}>{children}</div>
 );
 
 Control.displayName = "Control";

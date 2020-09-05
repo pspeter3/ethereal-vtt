@@ -1,11 +1,8 @@
-import { classnames } from "tailwindcss-classnames";
+import { cx } from "./cx";
 
-export const focusStyle = classnames(
-    "focus:outline-none",
-    "focus:shadow-outline",
-);
+export const focusStyle = cx("focus:outline-none", "focus:shadow-outline");
 
-export const fieldStyle = classnames(
+export const fieldStyle = cx(
     "appearance-none",
     "border-2",
     "focus:border-indigo-500",
