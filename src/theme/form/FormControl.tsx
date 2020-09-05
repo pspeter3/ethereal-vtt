@@ -1,8 +1,8 @@
 import { h, FunctionComponent } from "preact";
 import { cx } from "../cx";
 
-export const Control: FunctionComponent = ({ children }) => (
+export const FormControl: FunctionComponent = ({ children }) => (
     <div className={cx("w-full")}>{children}</div>
 );
 
-Control.displayName = "Control";
+FormControl.displayName = "FormControl";

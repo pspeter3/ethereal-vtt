@@ -85,6 +85,14 @@ const configure = (
                                                 "*.tsx",
                                             ),
                                         ],
+                                        variants: {
+                                            boxShadow: [
+                                                "responsive",
+                                                "hover",
+                                                "focus",
+                                                "focus-within",
+                                            ],
+                                        },
                                     }),
                                     require("autoprefixer"),
                                     /* eslint-enable @typescript-eslint/no-var-requires */

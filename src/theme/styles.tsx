@@ -1,15 +1,28 @@
 import { cx } from "./cx";
 
-export const focusStyle = cx("focus:outline-none", "focus:shadow-outline");
+export const focusable = cx("focus:outline-none", "focus:shadow-outline");
 
-export const fieldStyle = cx(
-    "appearance-none",
-    "border-2",
-    "focus:border-indigo-500",
+export const controllable = cx("appearance-none", focusable);
+
+export const bordered = cx("border-2");
+export const rounded = "rounded-lg";
+
+export const labeled = cx(
+    "block",
+    "font-bold",
+    "leading-4",
+    "pb-2",
+    "text-gray-700",
+);
+
+export const inputable = cx(
+    "focus:border-blue-400",
     "h-12",
     "px-4",
-    "rounded",
     "text-gray-900",
     "w-full",
-    focusStyle,
+    bordered,
+    controllable,
+    focusable,
+    rounded,
 );
