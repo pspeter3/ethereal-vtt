@@ -72,6 +72,7 @@ const configure = (
                                     /* eslint-disable @typescript-eslint/no-var-requires */
                                     require("tailwindcss")({
                                         future: {
+                                            purgeLayersByDefault: true,
                                             removeDeprecatedGapUtilities: true,
                                         },
                                         purge: [
