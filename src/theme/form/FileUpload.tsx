@@ -41,12 +41,12 @@ export const FileUpload: FunctionComponent<{
                     "flex-grow",
                     "flex",
                     "h-24",
-                    "hover:bg-gray-100",
+                    "hover:bg-gray-800",
                     "items-center",
                     "justify-center",
                     "px-4",
                     "space-x-2",
-                    "text-gray-500",
+                    "text-gray-600",
                     bordered,
                     rounded,
                 )}
@@ -57,7 +57,7 @@ export const FileUpload: FunctionComponent<{
                             <File />
                         </span>
                         <span
-                            className={cx("block", "text-gray-700", "truncate")}
+                            className={cx("block", "text-gray-500", "truncate")}
                         >
                             {file.name}
                         </span>

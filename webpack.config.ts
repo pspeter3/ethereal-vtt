@@ -9,9 +9,11 @@ class LangPlugin {
     public static readonly Name = "LangPlugin";
 
     private lang: string;
+    private className: string;
 
-    constructor(lang: string) {
+    constructor(lang: string, className: string) {
         this.lang = lang;
+        this.className = className;
     }
 
     apply(compiler: webpack.Compiler) {
@@ -19,10 +21,9 @@ class LangPlugin {
             HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tap(
                 LangPlugin.Name,
                 (data) => {
-                    data.html = data.html.replace(
-                        "<html",
-                        `<html lang="${this.lang}"`,
-                    );
+                    data.html = data.html
+                        .replace("<html", `<html lang="${this.lang}"`)
+                        .replace("<body", `<body class="${this.className}"`);
                     return data;
                 },
             );
@@ -115,7 +116,7 @@ const configure = (
             new MiniCssExtractPlugin({
                 filename: isProd ? "[name].[contenthash].css" : "[name].css",
             }),
-            new LangPlugin("en"),
+            new LangPlugin("en", "antialiased bg-gray-900"),
             new webpack.ContextReplacementPlugin(
                 /\/peerjs\//,
                 (data: { dependencies: { critical?: string }[] }) => {

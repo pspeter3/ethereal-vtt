@@ -11,12 +11,12 @@ export const SubmitButton: FunctionComponent<{ onClick?: () => void }> = ({
         onClick={onClick}
         className={cx(
             "flex",
-            "focus:bg-blue-100",
+            "focus:bg-blue-800",
             "focus:border-blue-400",
-            "focus:text-blue-700",
+            "focus:text-blue-300",
             "font-bold",
             "h-12",
-            "hover:bg-gray-100",
+            "hover:bg-gray-800",
             "items-center",
             "justify-center",
             "px-4",

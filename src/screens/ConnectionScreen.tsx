@@ -18,26 +18,20 @@ const ConnectionScreen: FunctionComponent<{
         >
             <header
                 className={cx(
-                    "bg-gray-100",
+                    "bg-gray-800",
                     "flex",
                     "items-center",
                     "justify-center",
                     "py-6",
                     "space-x-2",
+                    "text-gray-400",
                     rounded,
                 )}
             >
-                <div className={cx("block", "text-gray-700")}>
+                <div className={cx("block")}>
                     <Shield />
                 </div>
-                <h1
-                    className={cx(
-                        "leading-6",
-                        "text-2xl",
-                        "text-gray-700",
-                        "tracking-wide",
-                    )}
-                >
+                <h1 className={cx("leading-6", "text-2xl", "tracking-wide")}>
                     Ethereal VTT
                 </h1>
             </header>

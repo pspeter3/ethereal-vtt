@@ -9,7 +9,11 @@ export const FieldGroup: FunctionComponent<{ label: string; help: string }> = ({
     children,
 }) => (
     <fieldset className={cx("space-y-3")}>
-        <legend className={cx("border-b", "w-full", labeled)}>{label}</legend>
+        <legend
+            className={cx("border-b", "border-gray-600", "w-full", labeled)}
+        >
+            {label}
+        </legend>
         <HelpText>{help}</HelpText>
         <div className={cx("flex", "space-x-4")}>{children}</div>
     </fieldset>
