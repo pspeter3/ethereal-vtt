@@ -74,9 +74,6 @@ const configure = (
                                         future: {
                                             removeDeprecatedGapUtilities: true,
                                         },
-                                        plugins: [
-                                            require("@tailwindcss/typography"),
-                                        ],
                                         purge: [
                                             path.join(
                                                 __dirname,
