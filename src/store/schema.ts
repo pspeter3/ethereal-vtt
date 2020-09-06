@@ -1,5 +1,3 @@
-import { DBSchema } from "idb";
-import { Asset } from "../util/asset";
 import { Position } from "../util/geometry";
 
 /**
@@ -76,29 +74,3 @@ export interface Token extends Picture {}
  */
 export interface Encounter extends Entity {}
 /* eslint-enable @typescript-eslint/no-empty-interface */
-
-export interface Schema extends DBSchema {
-    config: {
-        value: string;
-        key: string;
-    };
-    assets: {
-        value: Asset;
-        key: string;
-    };
-    charts: {
-        value: Chart;
-        key: string;
-        indexes: { byName: string };
-    };
-    tokens: {
-        value: Token;
-        key: string;
-        indexes: { byName: string };
-    };
-    encounters: {
-        value: Encounter;
-        key: string;
-        indexes: { byUpdatedAt: number };
-    };
-}
