@@ -90,7 +90,7 @@ export async function toDataURL(asset: Asset): Promise<string> {
  * @param buffer The ArrayBuffer to digest.
  */
 async function digest(buffer: ArrayBuffer): Promise<string> {
-    const hash = await crypto.subtle.digest("SHA-1", buffer);
+    const hash = await crypto.subtle.digest("SHA-256", buffer);
     return Array.from(new Uint8Array(hash))
         .map((byte) => byte.toString(16).padStart(2, "0"))
         .join("");
