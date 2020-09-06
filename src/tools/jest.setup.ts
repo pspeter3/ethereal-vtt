@@ -1,6 +1,5 @@
 import * as crypto from "crypto";
 import "@testing-library/jest-dom";
-import "fake-indexeddb/auto";
 
 // Polyfill crypto
 if (!window.crypto) {
