@@ -7,7 +7,7 @@ describe("useTask", () => {
     const Example: FunctionComponent<{ task: () => Promise<string> }> = ({
         task,
     }) => {
-        const state = useTask(task, []);
+        const state = useTask(task);
         return (
             <div>
                 <span>{state.status.toString()}</span>

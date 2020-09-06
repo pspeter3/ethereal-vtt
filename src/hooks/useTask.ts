@@ -4,13 +4,9 @@ import { AsyncState, useAsync } from "./useAsync";
 /**
  * Execute an async function as a hook.
  * @param task Task to execute.
- * @param deps Dependencis for the task.
  */
-export function useTask<R>(
-    task: () => Promise<R>,
-    deps: unknown[],
-): AsyncState<R> {
-    const [state, invoke] = useAsync(task, deps);
+export function useTask<R>(task: () => Promise<R>): AsyncState<R> {
+    const [state, invoke] = useAsync(task);
     useEffect(() => invoke(), [invoke]);
     return state;
 }

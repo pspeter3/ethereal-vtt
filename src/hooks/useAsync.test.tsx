@@ -12,7 +12,7 @@ describe("useAsync", () => {
     const Example: FunctionComponent<{ task: () => Promise<string> }> = ({
         task,
     }) => {
-        const [state, invoke] = useAsync(task, []);
+        const [state, invoke] = useAsync(task);
         return (
             <div>
                 <span>{state.status.toString()}</span>

@@ -44,23 +44,19 @@ export type AsyncState<R> =
 /**
  * Wrap an async function as a hook.
  * @param task Task to execute.
- * @param deps Dependencis for the task.
  */
 export function useAsync<R>(
     task: () => Promise<R>,
-    deps: unknown[],
 ): [AsyncState<R>, () => void] {
     const [state, setState] = useState<AsyncState<R>>({
         status: AsyncStatus.Idle,
     });
-    /* eslint-disable react-hooks/exhaustive-deps */
     const invoke = useCallback(() => {
         setState({ status: AsyncStatus.Loading });
         task().then(
             (result) => setState({ status: AsyncStatus.Success, result }),
             (error) => setState({ status: AsyncStatus.Error, error }),
         );
-    }, deps);
-    /* eslint-enable react-hooks/exhaustive-deps */
+    }, [task]);
     return [state, invoke];
 }
