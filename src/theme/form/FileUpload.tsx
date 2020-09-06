@@ -1,14 +1,15 @@
-import { h, FunctionComponent } from "preact";
+import { h, FunctionComponent, Fragment } from "preact";
 import { cx } from "../cx";
-import { FilePlus } from "preact-feather";
+import { File, FilePlus } from "preact-feather";
 import { bordered, labeled, rounded } from "../styles";
 
 export const FileUpload: FunctionComponent<{
     id: string;
     accept: string;
+    file: File | null;
     onChange: (value: File) => void;
     required?: boolean;
-}> = ({ id, accept, onChange, required, children }) => {
+}> = ({ id, accept, file, onChange, required, children }) => {
     const onFiles = (files: FileList | null) => {
         if (files && files.length > 0) {
             onChange(files[0]);
@@ -39,16 +40,31 @@ export const FileUpload: FunctionComponent<{
                 className={cx(
                     "flex-grow",
                     "flex",
+                    "h-24",
+                    "hover:bg-gray-100",
                     "items-center",
                     "justify-center",
+                    "px-4",
+                    "space-x-2",
                     "text-gray-500",
-                    "hover:bg-gray-100",
-                    "h-24",
                     bordered,
                     rounded,
                 )}
             >
-                <FilePlus />
+                {file !== null ? (
+                    <Fragment>
+                        <span className={cx("block")}>
+                            <File />
+                        </span>
+                        <span
+                            className={cx("block", "text-gray-700", "truncate")}
+                        >
+                            {file.name}
+                        </span>
+                    </Fragment>
+                ) : (
+                    <FilePlus />
+                )}
             </span>
             <input
                 type="file"

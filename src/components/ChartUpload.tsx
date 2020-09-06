@@ -73,6 +73,7 @@ export const ChartUpload: FunctionComponent = () => {
             <FileUpload
                 id="file"
                 accept=".jpg, .jpeg, .png"
+                file={file}
                 onChange={setFile}
                 required={true}
             >

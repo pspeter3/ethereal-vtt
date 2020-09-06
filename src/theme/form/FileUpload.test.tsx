@@ -5,12 +5,12 @@ import { AssetType } from "../../util/asset";
 
 describe("FileUpload", () => {
     it("should handle file inputs", () => {
-        const id = "file";
         const onChange = jest.fn();
         render(
             <FileUpload
-                id={id}
+                id="file"
                 accept=".jpg, .jpeg, .png"
+                file={null}
                 onChange={onChange}
                 required={true}
             >
@@ -29,12 +29,12 @@ describe("FileUpload", () => {
     });
 
     it("should handle empty file lists", () => {
-        const id = "file";
         const onChange = jest.fn();
         render(
             <FileUpload
-                id={id}
+                id="file"
                 accept=".jpg, .jpeg, .png"
+                file={null}
                 onChange={onChange}
                 required={true}
             >
@@ -50,12 +50,12 @@ describe("FileUpload", () => {
     });
 
     it("should handle file drops", () => {
-        const id = "file";
         const onChange = jest.fn();
         render(
             <FileUpload
-                id={id}
+                id="file"
                 accept=".jpg, .jpeg, .png"
+                file={null}
                 onChange={onChange}
                 required={true}
             >
@@ -76,12 +76,12 @@ describe("FileUpload", () => {
     });
 
     it("should handle missing data transfer", () => {
-        const id = "file";
         const onChange = jest.fn();
         render(
             <FileUpload
-                id={id}
+                id="file"
                 accept=".jpg, .jpeg, .png"
+                file={null}
                 onChange={onChange}
                 required={true}
             >
@@ -92,5 +92,23 @@ describe("FileUpload", () => {
         fireEvent.dragOver(label);
         fireEvent.drop(label);
         expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it("should display file name", () => {
+        const file = new File([""], "test.png", {
+            type: AssetType.PNG,
+        });
+        render(
+            <FileUpload
+                id="file"
+                accept=".jpg, .jpeg, .png"
+                file={file}
+                onChange={jest.fn()}
+                required={true}
+            >
+                File
+            </FileUpload>,
+        );
+        expect(screen.queryByText(file.name)).not.toBeNull();
     });
 });
