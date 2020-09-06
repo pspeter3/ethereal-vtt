@@ -1,15 +1,19 @@
 import { FunctionComponent, h } from "preact";
 import { useEffect } from "preact/hooks";
-import { ChartUpload } from "./components/ChartUpload";
 import { useError } from "./hooks/useError";
-import { cx } from "./theme/cx";
+import ConnectionScreen from "./screens/ConnectionScreen";
 
-export const App: FunctionComponent = () => {
+export const App: FunctionComponent<{ host: string | null }> = ({ host }) => {
     const error = useError();
-    useEffect(() => console.error(error), [error]);
+    useEffect(() => {
+        if (error) {
+            console.error(error);
+        }
+    }, [error]);
     return (
-        <main className={cx("max-w-lg", "mx-auto", "px-4", "py-3")}>
-            <ChartUpload />
-        </main>
+        <ConnectionScreen
+            isHost={host === null}
+            onSubmit={(value) => console.log(value)}
+        />
     );
 };

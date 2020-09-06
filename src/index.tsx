@@ -5,7 +5,12 @@ import { App } from "./App";
 window.addEventListener(
     "load",
     () => {
-        render(<App />, document.body);
+        render(
+            <App
+                host={new URLSearchParams(window.location.search).get("host")}
+            />,
+            document.body,
+        );
     },
     { once: true },
 );
