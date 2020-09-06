@@ -3,18 +3,13 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import * as uuid from "uuid";
 import { Chart } from "../store/schema";
 import { cx } from "../theme/cx";
+import { FieldGroup } from "../theme/form/FieldGroup";
 import { FileUpload } from "../theme/form/FileUpload";
-import { FormControl } from "../theme/form/FormControl";
-import { FormLabel } from "../theme/form/FormLabel";
-import { NumberField } from "../theme/form/NumberField";
-import { TextField } from "../theme/form/TextField";
-import {
-    bordered,
-    controllable,
-    focusable,
-    labeled,
-    rounded,
-} from "../theme/styles";
+import { NumberControl } from "../theme/form/NumberControl";
+import { PositionControl } from "../theme/form/PositionControl";
+import { SubmitButton } from "../theme/form/SubmitButton";
+import { TextControl } from "../theme/form/TextControl";
+import { bordered, rounded } from "../theme/styles";
 import { Asset, fromFile } from "../util/asset";
 import { Position } from "../util/geometry";
 
@@ -27,7 +22,7 @@ export const ChartUpload: FunctionComponent = () => {
     const nameRef = useRef<HTMLInputElement | null>(null);
     const [file, setFile] = useState<File | null>(null);
     const [name, setName] = useState("");
-    const [size, setSize] = useState<Position>([0, 0]);
+    const [size, setSize] = useState<Position>([1, 1]);
     const [scale, setScale] = useState(70);
     const [offset, setOffset] = useState<Position>([0, 0]);
     const [ratio, setRatio] = useState(5);
@@ -79,136 +74,49 @@ export const ChartUpload: FunctionComponent = () => {
             >
                 File
             </FileUpload>
-            <FormControl>
-                <FormLabel id="name">Name</FormLabel>
-                <TextField
-                    id="name"
-                    value={name}
-                    onChange={setName}
-                    required
-                    fieldRef={nameRef}
-                />
-            </FormControl>
-            <FormControl>
-                <FormLabel id="scale">Scale</FormLabel>
-                <p className={cx("text-gray-600", "leading-6")}>
-                    The number of pixels per square.
-                </p>
-                <NumberField
-                    id="scale"
-                    value={scale}
-                    onChange={setScale}
-                    required={true}
-                />
-            </FormControl>
-            <fieldset>
-                <legend className={cx(labeled, "border-b", "w-full")}>
-                    Dimensions
-                </legend>
-                <p className={cx("text-gray-600", "leading-6", "my-3")}>
-                    The number of columns and rows in the grid.
-                </p>
-                <div className={cx("flex", "space-x-4")}>
-                    <FormControl>
-                        <FormLabel id="cols">Columns</FormLabel>
-                        <NumberField
-                            id="cols"
-                            value={size[0]}
-                            onChange={(x) => setSize(([_, y]) => [x, y])}
-                            required={true}
-                        />
-                    </FormControl>
-                    <FormControl>
-                        <FormLabel id="rows">Rows</FormLabel>
-                        <NumberField
-                            id="rows"
-                            value={size[1]}
-                            onChange={(y) => setSize(([x]) => [x, y])}
-                            required={true}
-                        />
-                    </FormControl>
-                </div>
-            </fieldset>
-            <fieldset>
-                <legend className={cx(labeled, "border-b", "w-full")}>
-                    Offset
-                </legend>
-                <p className={cx("text-gray-600", "leading-6", "my-3")}>
-                    The number of pixels that offset the grid.
-                </p>
-                <div className={cx("flex", "space-x-4")}>
-                    <FormControl>
-                        <FormLabel id="offset-x">X</FormLabel>
-                        <NumberField
-                            id="offset-x"
-                            value={offset[0]}
-                            onChange={(x) => setOffset(([_, y]) => [x, y])}
-                            required={true}
-                        />
-                    </FormControl>
-                    <FormControl>
-                        <FormLabel id="offset-y">Y</FormLabel>
-                        <NumberField
-                            id="offset-y"
-                            value={offset[1]}
-                            onChange={(y) => setOffset(([x]) => [x, y])}
-                            required={true}
-                        />
-                    </FormControl>
-                </div>
-            </fieldset>
-            <fieldset>
-                <legend className={cx(labeled, "border-b", "w-full")}>
-                    Game Scale
-                </legend>
-                <p className={cx("text-gray-600", "leading-6", "my-3")}>
-                    The ratio of game scale to grid scale and the dimension
-                    notation.
-                </p>
-                <div className={cx("flex", "space-x-4")}>
-                    <FormControl>
-                        <FormLabel id="ratio">Ratio</FormLabel>
-                        <NumberField
-                            id="ratio"
-                            value={ratio}
-                            onChange={setRatio}
-                            required={true}
-                        />
-                    </FormControl>
-                    <FormControl>
-                        <FormLabel id="dimension">Dimension</FormLabel>
-                        <TextField
-                            id="dimension"
-                            value={dimension}
-                            onChange={setDimension}
-                            required={true}
-                        />
-                    </FormControl>
-                </div>
-            </fieldset>
-            <button
-                type="submit"
-                className={cx(
-                    "flex",
-                    "focus:bg-blue-100",
-                    "focus:border-blue-400",
-                    "focus:text-blue-700",
-                    "font-bold",
-                    "h-12",
-                    "hover:bg-gray-100",
-                    "items-center",
-                    "justify-center",
-                    "px-4",
-                    "text-gray-700",
-                    "w-full",
-                    bordered,
-                    controllable,
-                    focusable,
-                    rounded,
-                )}
+            <TextControl
+                label="Name"
+                value={name}
+                onChange={setName}
+                fieldRef={nameRef}
+            />
+            <NumberControl
+                label="Scale"
+                help="The scale of a grid square in pixels."
+                value={scale}
+                onChange={setScale}
+            />
+            <PositionControl
+                label="Dimensions"
+                help="The number of columns and rows in the grid."
+                labels={["Columns", "Rows"]}
+                value={size}
+                onChange={setSize}
+            />
+            <PositionControl
+                label="Offset"
+                help="The number of pixels that offset the grid."
+                labels={["Columns", "Rows"]}
+                value={offset}
+                onChange={setOffset}
+            />
+            <FieldGroup
+                label="Game Scale"
+                help="The ratio of game scale to grid scale and the game scale
+                    notation."
             >
-                Submit
-            </button>
+                <NumberControl
+                    label="Ratio"
+                    value={ratio}
+                    onChange={setRatio}
+                />
+                <TextControl
+                    label="Notation"
+                    value={dimension}
+                    onChange={setDimension}
+                />
+            </FieldGroup>
+            <SubmitButton>Submit</SubmitButton>
             <pre
                 className={cx(
                     rounded,
