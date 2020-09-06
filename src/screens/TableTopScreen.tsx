@@ -1,10 +1,14 @@
 import { FunctionComponent, h } from "preact";
-import { LoadingIndicator } from '../theme/LoadingIndicator';
+import { useEffect, useRef } from "preact/hooks";
+import { useVirtualTableTop } from "../hooks/useVirtualTableTop";
 
 const TableTopScreen: FunctionComponent<{ host: string | null }> = ({
     host,
 }) => {
-    return host ? <h1>{host}</h1> : <LoadingIndicator/>;
+    const ref = useRef<HTMLDivElement | null>(null);
+    useVirtualTableTop(ref);
+    useEffect(console.log, [host]);
+    return <div ref={ref}></div>;
 };
 
 TableTopScreen.displayName = "TableTopScreen";
