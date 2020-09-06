@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from "preact";
+import { h, FunctionComponent, Ref } from "preact";
 import { inputable } from "../styles";
 
 export const NumberField: FunctionComponent<{
@@ -6,7 +6,8 @@ export const NumberField: FunctionComponent<{
     value: number;
     onChange: (value: number) => void;
     required?: boolean;
-}> = ({ id, value, onChange, required, ref }) => (
+    fieldRef?: Ref<HTMLInputElement>;
+}> = ({ id, value, onChange, required, fieldRef }) => (
     <input
         type="number"
         name={id}
@@ -17,7 +18,7 @@ export const NumberField: FunctionComponent<{
         }
         required={required}
         className={inputable}
-        ref={ref}
+        ref={fieldRef}
     />
 );
 

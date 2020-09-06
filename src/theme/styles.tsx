@@ -9,10 +9,10 @@ export const rounded = "rounded-lg";
 
 export const labeled = cx(
     "block",
-    "font-bold",
-    "leading-4",
-    "pb-2",
+    "font-semibold",
+    "leading-6",
     "text-gray-700",
+    "tracking-wide",
 );
 
 export const inputable = cx(
