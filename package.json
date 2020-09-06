@@ -28,8 +28,7 @@
     "preact-feather": "^4.1.0",
     "tailwindcss": "^1.8.2",
     "tslib": "^2.0.1",
-    "uuid": "^8.3.0",
-    "wouter-preact": "^2.5.1"
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
