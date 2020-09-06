@@ -8,7 +8,7 @@ const TableTopScreen: FunctionComponent<{ host: string | null }> = ({
     const ref = useRef<HTMLDivElement | null>(null);
     useVirtualTableTop(ref);
     useEffect(console.log, [host]);
-    return <div ref={ref}></div>;
+    return <div ref={ref} />;
 };
 
 TableTopScreen.displayName = "TableTopScreen";

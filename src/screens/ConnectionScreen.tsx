@@ -11,7 +11,7 @@ const ConnectionScreen: FunctionComponent<{
     isHost: boolean;
     onSubmit: (value: { name: string }) => void;
 }> = ({ isHost, onSubmit }) => {
-    const [name, setName] = useState(localStorage.getItem("name") ?? "");
+    const [name, setName] = useState("");
     return (
         <main
             className={cx("max-w-sm", "mx-auto", "px-4", "py-3", "space-y-6")}

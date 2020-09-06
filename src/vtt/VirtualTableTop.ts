@@ -31,10 +31,10 @@ export class VirtualTableTop {
             .wheel()
             .clampZoom({ minScale: 0.25, maxScale: 1 });
         const graphics = new Graphics();
-        graphics.beginFill(0xECEFF4);
+        graphics.beginFill(0xeceff4);
         graphics.drawRect(0, 0, worldWidth, worldHeight);
         graphics.endFill();
-        graphics.lineStyle(4, 0xD8DEE9);
+        graphics.lineStyle(4, 0xd8dee9);
         const cell = 64;
         for (let i = 0; i <= worldWidth; i += cell) {
             graphics.moveTo(i, 0);
@@ -45,7 +45,7 @@ export class VirtualTableTop {
         graphics.closePath();
         graphics.cacheAsBitmap;
         this.viewport.addChild(graphics);
-        
+
         window.addEventListener("resize", this.onResize);
     }
 
