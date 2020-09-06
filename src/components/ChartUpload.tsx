@@ -1,22 +1,17 @@
 import { FunctionComponent, h } from "preact";
-import { useEffect, useRef, useState } from "preact/hooks";
-import * as uuid from "uuid";
-import { Chart } from "../store/schema";
+import { useCallback, useEffect, useRef, useState } from "preact/hooks";
+import { useAsync } from "../hooks/useAsync";
 import { cx } from "../theme/cx";
 import { FieldGroup } from "../theme/form/FieldGroup";
 import { FileUpload } from "../theme/form/FileUpload";
+import { FormContainer } from "../theme/form/FormContainer";
 import { NumberControl } from "../theme/form/NumberControl";
 import { PositionControl } from "../theme/form/PositionControl";
 import { SubmitButton } from "../theme/form/SubmitButton";
 import { TextControl } from "../theme/form/TextControl";
 import { bordered, rounded } from "../theme/styles";
-import { Asset, fromFile } from "../util/asset";
+import { fromFile } from "../util/asset";
 import { Position } from "../util/geometry";
-
-interface Result {
-    readonly asset: Asset;
-    readonly chart: Chart;
-}
 
 export const ChartUpload: FunctionComponent = () => {
     const nameRef = useRef<HTMLInputElement | null>(null);
@@ -27,7 +22,13 @@ export const ChartUpload: FunctionComponent = () => {
     const [offset, setOffset] = useState<Position>([0, 0]);
     const [ratio, setRatio] = useState(5);
     const [dimension, setDimension] = useState("'");
-    const [result, setResult] = useState<Result | Error | null>(null);
+    const parseFile = useCallback(async () => {
+        if (file === null) {
+            throw new Error("Missing file");
+        }
+        return await fromFile(file);
+    }, [file]);
+    const [state, invoke] = useAsync(parseFile);
     useEffect(() => {
         if (file && file.name) {
             setName((name) => (name === "" ? file.name : name));
@@ -36,35 +37,7 @@ export const ChartUpload: FunctionComponent = () => {
         }
     }, [file]);
     return (
-        <form
-            className={cx("space-y-6")}
-            onSubmit={async (event) => {
-                event.preventDefault();
-                if (file) {
-                    try {
-                        const asset = await fromFile(file);
-                        const now = Date.now();
-                        setResult({
-                            asset,
-                            chart: {
-                                id: uuid.v4(),
-                                createdAt: now,
-                                updatedAt: now,
-                                name,
-                                size,
-                                assetId: asset.hash,
-                                scale,
-                                offset,
-                                ratio,
-                                dimension,
-                            },
-                        });
-                    } catch (err) {
-                        setResult(err);
-                    }
-                }
-            }}
-        >
+        <FormContainer onSubmit={invoke}>
             <FileUpload
                 id="file"
                 accept=".jpg, .jpeg, .png"
@@ -129,9 +102,9 @@ export const ChartUpload: FunctionComponent = () => {
                     "py-3",
                 )}
             >
-                {JSON.stringify(result, null, 2)}
+                {JSON.stringify(state, null, 2)}
             </pre>
-        </form>
+        </FormContainer>
     );
 };
 
