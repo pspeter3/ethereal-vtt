@@ -1,6 +1,6 @@
 import { FunctionComponent, h } from "preact";
 import { FeatherProps } from "preact-feather/dist/types";
-import { cx } from "../cx";
+import { cx } from "../../util/cx";
 import { focusable } from "../styles";
 
 export const ToolbarButton: FunctionComponent<{

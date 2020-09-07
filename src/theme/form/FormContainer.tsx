@@ -1,5 +1,5 @@
 import { FunctionComponent, h } from "preact";
-import { cx } from "../cx";
+import { cx } from "../../util/cx";
 
 export const FormContainer: FunctionComponent<{ onSubmit: () => void }> = ({
     onSubmit,

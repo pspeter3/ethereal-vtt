@@ -1,5 +1,5 @@
 import { FunctionComponent, h } from "preact";
-import { cx } from "../cx";
+import { cx } from "../../util/cx";
 import { bordered, controllable, focusable, labeled, rounded } from "../styles";
 
 export const SubmitButton: FunctionComponent<{ onClick?: () => void }> = ({

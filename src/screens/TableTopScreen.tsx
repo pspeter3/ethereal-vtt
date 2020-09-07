@@ -14,7 +14,7 @@ import {
 } from "preact-feather";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { useVirtualTableTop } from "../hooks/useVirtualTableTop";
-import { cx } from "../theme/cx";
+import { cx } from "../util/cx";
 import { Toolbar } from "../theme/toolbar/Toolbar";
 import { ToolbarButton } from "../theme/toolbar/ToolbarButton";
 

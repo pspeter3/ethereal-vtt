@@ -1,6 +1,6 @@
 import { FunctionComponent, h } from "preact";
 import { Shield } from "preact-feather";
-import { cx } from "./cx";
+import { cx } from "../util/cx";
 
 export const LoadingIndicator: FunctionComponent = () => (
     <div

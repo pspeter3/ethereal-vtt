@@ -1,5 +1,5 @@
 import { FunctionComponent, h } from "preact";
-import { cx } from "../cx";
+import { cx } from "../../util/cx";
 import { labeled } from "../styles";
 import { HelpText } from "./HelpText";
 
