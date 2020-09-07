@@ -1,5 +1,5 @@
 import { h, FunctionComponent, Fragment } from "preact";
-import { cx } from "../cx";
+import { cx } from "../../util/cx";
 import { File, FilePlus } from "preact-feather";
 import { bordered, labeled, rounded } from "../styles";
 

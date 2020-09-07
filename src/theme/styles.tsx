@@ -1,4 +1,4 @@
-import { cx } from "./cx";
+import { cx } from "../util/cx";
 
 export const focusable = cx("focus:outline-none", "focus:shadow-outline");
 

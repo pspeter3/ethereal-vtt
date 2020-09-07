@@ -1,7 +1,7 @@
 import { FunctionComponent, h } from "preact";
 import { Shield } from "preact-feather";
 import { useState } from "preact/hooks";
-import { cx } from "../theme/cx";
+import { cx } from "../util/cx";
 import { FormContainer } from "../theme/form/FormContainer";
 import { SubmitButton } from "../theme/form/SubmitButton";
 import { TextControl } from "../theme/form/TextControl";
