@@ -92,7 +92,7 @@
   "jest": {
     "collectCoverage": true,
     "setupFilesAfterEnv": [
-      "<rootDir>/src/tools/jest.setup.ts"
+      "<rootDir>/src/util/jest.setup.ts"
     ],
     "preset": "ts-jest"
   },
