@@ -2,10 +2,10 @@ import { FunctionComponent, h } from "preact";
 import { Shield } from "preact-feather";
 import { useState } from "preact/hooks";
 import { cx } from "../util/cx";
-import { FormContainer } from "../theme/form/FormContainer";
-import { SubmitButton } from "../theme/form/SubmitButton";
-import { TextControl } from "../theme/form/TextControl";
-import { rounded } from "../theme/styles";
+import { FormContainer } from "../components/form/FormContainer";
+import { SubmitButton } from "../components/form/SubmitButton";
+import { TextControl } from "../components/form/TextControl";
+import { rounded } from "../components/styles";
 
 const ConnectionScreen: FunctionComponent<{
     isHost: boolean;

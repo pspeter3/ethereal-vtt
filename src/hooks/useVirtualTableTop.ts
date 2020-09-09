@@ -1,6 +1,6 @@
 import { RefObject } from "preact";
 import { useEffect } from "preact/hooks";
-import { VirtualTableTop } from "../vtt/VirtualTableTop";
+import { VirtualTableTop } from "../core/VirtualTableTop";
 
 /**
  * Hook to use a VirtualTableTop

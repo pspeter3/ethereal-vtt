@@ -3,7 +3,7 @@ import { lazy, Suspense } from "preact/compat";
 import { useEffect, useState } from "preact/hooks";
 import { useError } from "./hooks/useError";
 import ConnectionScreen from "./screens/ConnectionScreen";
-import { LoadingIndicator } from "./theme/LoadingIndicator";
+import { LoadingIndicator } from "./components/LoadingIndicator";
 
 const TableTopScreen = lazy(() => import("./screens/TableTopScreen"));
 

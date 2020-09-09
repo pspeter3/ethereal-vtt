@@ -15,8 +15,8 @@ import {
 import { useEffect, useRef, useState } from "preact/hooks";
 import { useVirtualTableTop } from "../hooks/useVirtualTableTop";
 import { cx } from "../util/cx";
-import { Toolbar } from "../theme/toolbar/Toolbar";
-import { ToolbarButton } from "../theme/toolbar/ToolbarButton";
+import { Toolbar } from "../components/toolbar/Toolbar";
+import { ToolbarButton } from "../components/toolbar/ToolbarButton";
 
 const TableTopScreen: FunctionComponent<{ host: string | null }> = ({
     host,

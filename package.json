@@ -4,12 +4,12 @@
   "description": "Minimal peer to peer virtual table top",
   "scripts": {
     "build": "NODE_ENV=production webpack --mode production",
-    "fmt": "prettier --write '*.{md,ts}' '{.github,doc,src}/**/*'",
+    "fmt": "prettier --write '*.{md,ts}' '{.github,src}/**/*'",
     "start": "webpack-dev-server",
     "test": "npm run test:style && npm run test:lint && npm run test:types && npm run test:spec",
     "test:lint": "eslint '*.ts' 'src/**/*'",
     "test:spec": "jest --ci",
-    "test:style": "prettier --check '*.{md,ts}' '{.github,doc,src}/**/*'",
+    "test:style": "prettier --check '*.{md,ts}' '{.github,src}/**/*'",
     "test:types": "tsc --noEmit --pretty"
   },
   "repository": {
@@ -27,7 +27,7 @@
     "pixi.js": "^5.3.3",
     "preact": "^10.4.8",
     "preact-feather": "^4.1.0",
-    "tailwindcss": "^1.8.4",
+    "tailwindcss": "^1.8.5",
     "tslib": "^2.0.1",
     "uuid": "^8.3.0"
   },
@@ -43,16 +43,16 @@
     "@types/webpack": "^4.41.22",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",
-    "css-loader": "^4.2.2",
+    "css-loader": "^4.3.0",
     "eslint": "^7.8.1",
     "eslint-config-preact": "^1.1.1",
     "eslint-plugin-jest": "^24.0.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "html-webpack-plugin": "^4.4.1",
     "jest": "^26.4.2",
-    "mini-css-extract-plugin": "^0.11.0",
+    "mini-css-extract-plugin": "^0.11.1",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
-    "postcss-loader": "^4.0.0",
+    "postcss-loader": "^4.0.1",
     "prettier": "^2.1.1",
     "ts-jest": "^26.3.0",
     "ts-loader": "^8.0.3",
@@ -92,7 +92,7 @@
   "jest": {
     "collectCoverage": true,
     "setupFilesAfterEnv": [
-      "<rootDir>/src/tools/jest.setup.ts"
+      "<rootDir>/src/util/jest.setup.ts"
     ],
     "preset": "ts-jest"
   },
